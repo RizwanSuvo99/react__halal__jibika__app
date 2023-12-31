@@ -2,7 +2,7 @@
 
 :root {
   --primary_clr: #244034;
-  --secondary_clr: #d2f34c;
+  --secondary_clr: #6bfae2;
   --accent_clr: #00c058;
   --text_clr: #fff;
 
@@ -107,27 +107,30 @@ h6 {
 }
 
 .btn {
-  background: linear-gradient(180deg, #5ce1e6 71.54%, #33bbcf 100%);
+  background: linear-gradient(180deg, #261648 71.54%, #0e0a17 100%);
   border: none;
   border-radius: 0.625rem;
-  color: var(--primary-Color);
+  color: #fff;
   cursor: pointer;
   font-weight: 500;
   text-transform: capitalize;
-  padding: 1rem 2rem;
+  padding: .8rem 1.8rem;
   position: relative;
   z-index: 1;
   overflow: hidden;
-  transition: color 0.5s linear;
+  border: 3px solid #261648;
+  font-weight: 600;
+  transition: all 0.3s linear;
 }
 
 .btn:hover {
-  border-radius: 0;
-  color: var(--light-color);
+  border-radius: 0.625rem;
+  color: #0e0a17;
+  border: 3px solid #0e0a17;
 }
 
 .btn::before {
-  background: #1a213d;
+  background: #fff;
   content: "";
   height: 100%;
   width: 100%;
