@@ -14,7 +14,7 @@ const MainLayout = () => {
         <Outlet />
       </div>
       <div className="bottom section__padding">
-        
+        <Footer />
       </div>
     </div>
   );

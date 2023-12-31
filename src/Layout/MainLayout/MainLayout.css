@@ -1,14 +1,14 @@
 .top,
 .bottom {
-  background-color: var(--primary_clr);
+  background-color:#005748;
   color: #fff;
   padding-block: 1rem;
 }
 
 .mid {
-  height: 100vh;
-  background-color: var(--primary_clr);
-  color: var(--secondary_clr);
+  min-height: 30rem;
+  background-color: #f0fffd;
+  color: #02612e;
 }
 
 .bottom {

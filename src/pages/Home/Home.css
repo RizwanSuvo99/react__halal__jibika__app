@@ -1,6 +1,12 @@
+.home{
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
 .home h1:first-child {
   font-size: 4rem;
-  color: #fff;
+  color: #0a2e29;
 }
 
 .home h1:nth-child(2) {
@@ -12,4 +18,8 @@
     color: #fff;
     font-size: 1.3rem;
     letter-spacing: 1px;
+}
+
+.home__img img{
+    max-width: 40rem;
 }
