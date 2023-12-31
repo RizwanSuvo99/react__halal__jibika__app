@@ -1,7 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaGoogle, FaGithub } from "react-icons/fa"; // Import Google and GitHub icons
 import "./Login.css";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  const handleBackToHome = () => {
+    navigate("/");
+  };
+
   const handleLogin = () => {
     // Add your login logic here
     alert("Login button clicked!");
@@ -29,12 +40,22 @@ const Login = () => {
             Haven't account? <Link to={"/signup"}>Create New Account</Link>
           </p>
 
+          {/* Icons for Google and GitHub login */}
+          <div className="social-buttons">
+            <button className="social-btn google-btn btn">
+              <FaGoogle className="icon" /> Login with Google
+            </button>
+            <button className="social-btn github-btn btn">
+              <FaGithub className="icon" /> Login with GitHub
+            </button>
+          </div>
+
           {/* Navigation buttons */}
           <div className="navigation-buttons">
-            <Link to="/" className="btn">
+            <Link onClick={handleBackToHome} className="btn">
               Go to Home
             </Link>
-            <Link to="/lastPage" className="btn">
+            <Link onClick={handleBack} className="btn">
               Go to Last Page
             </Link>
           </div>

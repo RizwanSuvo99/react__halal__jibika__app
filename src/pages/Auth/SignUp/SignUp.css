@@ -58,13 +58,15 @@
 }
 
 .signup .btn {
-  background: linear-gradient(180deg, #3289b8 71.54%, #3289b8 100%);
-  border: 3px solid #3289b8;
+  background: linear-gradient(180deg, #47ffaf 71.54%, #47ffaf 100%);
+  border: 3px solid #47ffaf;
+  color: #022e45;
+  padding: 0.3rem 1rem;
 }
 
 .signup .btn:hover {
-  color: #3289b8;
-  border: 3px solid #3289b8;
+  color: #022e45;
+  border: 3px solid #47ffaf;
 }
 
 /* Responsive styles for tablets */
