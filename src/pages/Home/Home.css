@@ -6,7 +6,7 @@
 
 .home h1:first-child {
   font-size: clamp(3rem, 8vw, 4rem);
-  color: #0a2e29;
+  color: #000000;
   animation: 0.8s moveFromCenter ease-out;
 }
 
@@ -15,6 +15,7 @@
   font-family: var(--font_EB);
   animation: 1s moveInLeft ease-out;
   min-height: 8rem;
+  color: #074137;
 }
 
 .home p {

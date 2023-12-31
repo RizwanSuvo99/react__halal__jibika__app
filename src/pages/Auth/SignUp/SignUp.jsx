@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./SignUp.css"; // Import the SignUp styles
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -70,6 +71,15 @@ const SignUp = () => {
           >
             Sign Up
           </button>
+
+          <div className="social-buttons">
+            <button className="social-btn google-btn btn">
+              <FaGoogle className="icon" /> Login with Google
+            </button>
+            <button className="social-btn github-btn btn">
+              <FaGithub className="icon" /> Login with GitHub
+            </button>
+          </div>
 
           {/* Navigation buttons */}
           <div className="navigation-buttons">

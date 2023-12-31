@@ -55,22 +55,22 @@
 }
 
 .login .btn {
-  background: linear-gradient(180deg, #47ffaf 71.54%, #47ffaf 100%);
-  border: 3px solid #47ffaf;
+  background: linear-gradient(180deg, #37ffde 71.54%, #37ffde 100%);
+  border: 3px solid #37ffde;
   color: #022e45;
   padding: 0.3rem 1rem;
 }
 
 .login .btn:hover {
   color: #022e45;
-  border: 3px solid #47ffaf;
+  border: 3px solid #37ffde;
 }
 
 .login-form p {
   margin-bottom: 1rem;
 }
 .login-form p a {
-  color: #47ffaf;
+  color: #37ffde;
 }
 
 .icon {
@@ -88,7 +88,7 @@
 .social-btn {
   display: flex;
   align-items: center;
-  background: #47ffaf; /* Google Blue */
+  background: #37ffde; /* Google Blue */
   color: #022e45;
   padding: 10px;
   border: none;

@@ -18,6 +18,9 @@
 .footer__column h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e91e63;
+  max-width: fit-content;
 }
 
 .footer__column p {
@@ -38,7 +41,7 @@
   text-decoration: none;
   transition: color 0.3s ease;
   &:hover{
-    color: #723b11;
+    color: #e91e63;
   }
 }
 
@@ -51,7 +54,7 @@
   font-size: 1.5rem;
   color: var(--primary__clr);
   &:hover{
-    color: #723b11;
+    color: #e91e63;
   }
 }
 
