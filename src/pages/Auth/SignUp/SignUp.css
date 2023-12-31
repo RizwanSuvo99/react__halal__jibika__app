@@ -72,9 +72,9 @@
 /* Social buttons */
 .social-buttons {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 1rem;
 }
 
 .social-btn {
@@ -84,9 +84,9 @@
   color: #022e45;
   padding: 10px;
   border: none;
-  border-radius: 4px;
+  border-radius: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   width: 100%;
   margin-bottom: 10px;
 }

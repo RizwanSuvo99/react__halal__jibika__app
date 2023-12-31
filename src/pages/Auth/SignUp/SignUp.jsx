@@ -1,13 +1,25 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css"; // Import the SignUp styles
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { IoHome } from "react-icons/io5";
+import { RiSendBackward } from "react-icons/ri";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
+
+  const handleBackToHome = () => {
+    navigate("/");
+  };
 
   const handleSignUp = () => {
     // Add your sign-up logic here
@@ -74,20 +86,20 @@ const SignUp = () => {
 
           <div className="social-buttons">
             <button className="social-btn google-btn btn">
-              <FaGoogle className="icon" /> Login with Google
+              <FaGoogle className="icon" /> Google Login
             </button>
             <button className="social-btn github-btn btn">
-              <FaGithub className="icon" /> Login with GitHub
+              <FaGithub className="icon" /> GitHub Login
             </button>
           </div>
 
           {/* Navigation buttons */}
           <div className="navigation-buttons">
-            <Link to="/" className="btn">
-              Go to Home
+            <Link onClick={handleBackToHome} className="btn">
+              <IoHome />
             </Link>
-            <Link to="/login" className="btn">
-              Go to Login
+            <Link onClick={handleBack} className="btn">
+              <RiSendBackward />
             </Link>
           </div>
         </form>

@@ -1,5 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
-import { FaGoogle, FaGithub } from "react-icons/fa"; // Import Google and GitHub icons
+import { FaGoogle, FaGithub } from "react-icons/fa";
+import { IoHome } from "react-icons/io5";
+import { RiSendBackward } from "react-icons/ri";
+// Import Google and GitHub icons
 import "./Login.css";
 
 const Login = () => {
@@ -43,20 +46,20 @@ const Login = () => {
           {/* Icons for Google and GitHub login */}
           <div className="social-buttons">
             <button className="social-btn google-btn btn">
-              <FaGoogle className="icon" /> Login with Google
+              <FaGoogle className="icon" /> Google Login
             </button>
             <button className="social-btn github-btn btn">
-              <FaGithub className="icon" /> Login with GitHub
+              <FaGithub className="icon" /> GitHub Login
             </button>
           </div>
 
           {/* Navigation buttons */}
           <div className="navigation-buttons">
             <Link onClick={handleBackToHome} className="btn">
-              Go to Home
+              <IoHome />
             </Link>
             <Link onClick={handleBack} className="btn">
-              Go to Last Page
+              <RiSendBackward />
             </Link>
           </div>
         </form>
