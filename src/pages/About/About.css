@@ -1,0 +1,44 @@
+/* AboutPage.css */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  min-height: 100vh;
+  background-color: #F0FFFD;
+  color: #0a2d25;
+  padding: 0 2rem;
+}
+
+.company-info {
+  max-width: 600px;
+}
+
+.company-info  p{
+    letter-spacing: 1px;
+    font-family: var(--font_EB);
+    font-size: 1.1rem;
+}
+
+.additional-details {
+  margin-top: 2rem;
+}
+
+.additional-details li {
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-family: var(--font_EB);
+  font-size: 1.1rem;
+}
+
+.about__text h1{
+    margin-bottom: .8rem;
+}
+
+.about__img {
+  object-fit: cover;
+}
+
+.about__img img {
+  border-radius: 1rem;
+}

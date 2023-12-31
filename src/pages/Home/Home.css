@@ -40,6 +40,18 @@
   flex-basis: 60%;
 }
 
+.hero__bottom{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.hero__bottom .user__card{
+    width: 20rem;
+    background-color: red;
+    height: 10rem;
+}
+
 @keyframes moveInLeft {
   from {
     transform: translateX(-10rem);
