@@ -1,0 +1,25 @@
+.not__found {
+  background-color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.not__found img{
+  width: 40%;
+  object-fit: cover;
+}
+
+.not__found p {
+  font-size: 3.5rem;
+  color: rgb(149, 5, 5);
+}
+
+.not__found button {
+  background-color: #1b201a;
+  color: #fff;
+  border-radius: 2rem;
+}

@@ -1,0 +1,17 @@
+.top,
+.bottom {
+  background-color: var(--primary_clr);
+  color: #fff;
+  padding-block: 1rem;
+}
+
+.mid {
+  height: 100vh;
+  background-color: var(--primary_clr);
+  color: var(--secondary_clr);
+}
+
+.bottom {
+  background-color: #f2f9d8;
+  color: var(--primary_clr);
+}

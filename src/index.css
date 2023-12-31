@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary_clr: #244034;
+  --secondary_clr: #d2f34c;
+  --accent_clr: #00c058;
+  --text_clr: #fff;
+
+  --font_EB: "EB Garamond", serif;
+  --font_TB: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+
+  --font_xl: 2rem;
+  --font_md: 1.6rem;
+  --font_sm: 1.2rem;
+}
 /*======== Use a more-intuitive box-sizing model & Remove default margin,padding ========*/
 *,
 *::before,
@@ -15,6 +31,7 @@ html {
 body {
   line-height: auto;
   text-rendering: optimizeSpeed;
+  font-family: var(--font_TB);
 }
 
 /*======== Improve media defaults ========*/
@@ -43,7 +60,7 @@ a {
   text-decoration: none;
 }
 
-span{
+span {
   display: inline-block;
 }
 
@@ -61,4 +78,95 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+/* ==========< Flex & Grid Utilities >========== */
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.jc-c {
+  justify-content: center;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
+
+.ai-c {
+  align-items: center;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background: linear-gradient(180deg, #5ce1e6 71.54%, #33bbcf 100%);
+  border: none;
+  border-radius: 0.625rem;
+  color: var(--primary-Color);
+  cursor: pointer;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: color 0.5s linear;
+}
+
+.btn:hover {
+  border-radius: 0;
+  color: var(--light-color);
+}
+
+.btn::before {
+  background: #1a213d;
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+  transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
+  z-index: -1;
+}
+
+.box {
+  position: relative;
+  cursor: pointer;
+}
+
+.box::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #176b87;
+  border-radius: 0.625rem;
+  z-index: -1;
+  transition: 0.5s transform ease-in;
+}
+
+.box:hover.box::after {
+  transform: translate(1.2rem, 1.5rem) rotate(-5deg) scale(1.01);
+}
+
+.section__padding {
+  padding: 0 clamp(1.5rem, 5vw, 2rem);
 }

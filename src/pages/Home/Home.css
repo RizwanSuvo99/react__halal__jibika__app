@@ -1,0 +1,15 @@
+.home h1:first-child {
+  font-size: 4rem;
+  color: #fff;
+}
+
+.home h1:nth-child(2) {
+  font-size: 3.5rem;
+  font-family: var(--font_EB);
+}
+
+.home p{
+    color: #fff;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
