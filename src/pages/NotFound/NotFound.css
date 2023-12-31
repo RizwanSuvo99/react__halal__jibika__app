@@ -15,11 +15,5 @@
 
 .not__found p {
   font-size: 3.5rem;
-  color: rgb(149, 5, 5);
-}
-
-.not__found button {
-  background-color: #1b201a;
-  color: #fff;
-  border-radius: 2rem;
+  color: rgb(255, 6, 6);
 }

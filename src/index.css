@@ -107,7 +107,7 @@ h6 {
 }
 
 .btn {
-  background: linear-gradient(180deg, #261648 71.54%, #0e0a17 100%);
+  background: linear-gradient(180deg, #18004d 71.54%, #0e0a17 100%);
   border: none;
   border-radius: 0.625rem;
   color: #fff;
@@ -118,7 +118,7 @@ h6 {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  border: 3px solid #261648;
+  border: 3px solid #18004d;
   font-weight: 600;
   transition: all 0.3s linear;
 }

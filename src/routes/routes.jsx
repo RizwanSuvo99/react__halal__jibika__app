@@ -7,6 +7,7 @@ import Jobs from "../pages/Jobs/Jobs";
 import Favourites from "../pages/Favourites/Favourites";
 import NotFound from "../pages/NotFound/NotFound";
 import Login from "../pages/Auth/Login/Login";
+import SignUp from "../pages/Auth/SignUp/SignUp";
 
 const routes = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const routes = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
   {
     path: "*",

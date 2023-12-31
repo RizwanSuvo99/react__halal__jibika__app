@@ -1,12 +1,86 @@
-.signUp {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* SignUp.css */
+
+.signup {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-container {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 3px 8px;
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  background: #022e45;
+  backdrop-filter: blur(25px);
+  color: #ffe7a9;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.signup-container label {
+  margin-top: 10px;
+}
+
+.signup-container input {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #000;
+  outline: none;
+  border: none;
+}
+
+.signup .btn {
+  padding: 0.5rem 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.signup .btn {
+  background: linear-gradient(180deg, #3289b8 71.54%, #3289b8 100%);
+  border: 3px solid #3289b8;
+}
+
+.signup .btn:hover {
+  color: #3289b8;
+  border: 3px solid #3289b8;
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 768px) {
+  .signup-container {
+    max-width: 90%;
   }
-  
-  .signUp__btns {
-    padding-block: 1rem;
-    display: flex;
-    gap: 1rem;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 15px;
   }
+
+  .signup-container input {
+    font-size: 14px;
+  }
+}
