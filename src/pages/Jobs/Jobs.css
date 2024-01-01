@@ -1,0 +1,30 @@
+.jobs{
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+.jobs__heading{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.jobs__heading h1{
+    font-size: 2.5rem;
+}
+
+.jobs__cards{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+
+}
+
+.jobs__cards > *{
+    flex-basis: 45%;
+}
+
+@media (max-width:1050px){
+    .jobs__cards{
+        grid-template-columns: 1fr;
+    }
+}
+

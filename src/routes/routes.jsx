@@ -8,6 +8,7 @@ import Favourites from "../pages/Favourites/Favourites";
 import NotFound from "../pages/NotFound/NotFound";
 import Login from "../pages/Auth/Login/Login";
 import SignUp from "../pages/Auth/SignUp/SignUp";
+import Job from "../components/Job/Job";
 
 const routes = createBrowserRouter([
   {
@@ -31,13 +32,19 @@ const routes = createBrowserRouter([
         element: <About />,
       },
       {
-        path: "/jobs",
-        element: <Jobs />,
-      },
-      {
         path: "/favourites",
         element: <Favourites />,
       },
+      {
+        path: "/jobs",
+        element: <Jobs />,
+        loader:() => fetch("http://localhost:9000/jobs")
+      },
+      {
+        path: "/jobs/:jobsId",
+        element: <Job />,
+        loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/users/${params.jobsId}`),
+      }
     ],
   },
   {

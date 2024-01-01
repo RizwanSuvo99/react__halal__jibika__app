@@ -40,16 +40,16 @@
   flex-basis: 60%;
 }
 
-.hero__bottom{
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
+.hero__bottom {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.hero__bottom .user__card{
-    width: 20rem;
-    background-color: red;
-    height: 10rem;
+.hero__bottom .user__card {
+  width: 20rem;
+  background-color: #0a2e29;
+  height: 10rem;
 }
 
 @keyframes moveInLeft {
@@ -98,7 +98,6 @@
   .home {
     text-align: center;
     flex-direction: column;
-    padding-top: 8rem;
   }
 
   .home__text {
@@ -106,5 +105,14 @@
   }
   .home__img img {
     display: none;
+  }
+}
+
+@media (max-width: 1150px) {
+  .home {
+    padding-top: 2rem;
+  }
+  .home__img img {
+    max-width: 35rem;
   }
 }

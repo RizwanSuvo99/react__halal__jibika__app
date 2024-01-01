@@ -1,0 +1,53 @@
+/* Job.css */
+.job-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-height: 12rem;
+}
+
+.job-card > *{
+    line-height: 1.7rem;
+}
+
+.company-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.job-details {
+  flex-grow: 1;
+}
+
+.job-details h2 {
+  margin: 0;
+}
+
+.job-actions button {
+  background-color: #f2f2f2;
+  color: #333;
+  border: none;
+  padding: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+  margin-block: 5px;
+}
+
+.job-actions button:hover {
+  background-color: #ddd;
+}
+
+@media (max-width:550px){
+    .job-card{
+        flex-direction: column;
+        text-align: center;
+    }
+}

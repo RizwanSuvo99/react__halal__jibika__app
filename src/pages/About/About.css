@@ -5,7 +5,7 @@
   align-items: center;
   gap: 3rem;
   min-height: 100vh;
-  background-color: #F0FFFD;
+  background-color: #f0fffd;
   color: #0a2d25;
   padding: 0 2rem;
 }
@@ -14,10 +14,11 @@
   max-width: 600px;
 }
 
-.company-info  p{
-    letter-spacing: 1px;
-    font-family: var(--font_EB);
-    font-size: 1.1rem;
+.company-info p {
+  letter-spacing: 1px;
+  font-family: var(--font_EB);
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .additional-details {
@@ -29,10 +30,11 @@
   letter-spacing: 1px;
   font-family: var(--font_EB);
   font-size: 1.1rem;
+  font-weight: 500;
 }
 
-.about__text h1{
-    margin-bottom: .8rem;
+.about__text h1 {
+  margin-bottom: 0.8rem;
 }
 
 .about__img {
