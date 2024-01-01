@@ -1,9 +1,10 @@
 /* Job.css */
 .job-card {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
+  gap: 1rem;
+  padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #fff;
@@ -11,8 +12,8 @@
   min-height: 12rem;
 }
 
-.job-card > *{
-    line-height: 1.7rem;
+.job-card > * {
+  line-height: 1.7rem;
 }
 
 .company-logo {
@@ -31,23 +32,34 @@
   margin: 0;
 }
 
+.job-actions{
+    width: 100%;
+}
+
 .job-actions button {
-  background-color: #f2f2f2;
-  color: #333;
+  background-color: #022e45;
+  color: #ffffff;
   border: none;
   padding: 8px;
   margin-left: 8px;
   cursor: pointer;
   margin-block: 5px;
+  border-radius: 3px;
+  transition: 0.3s all ease-out;
 }
 
 .job-actions button:hover {
-  background-color: #ddd;
+  background-color: #054e75;
 }
 
-@media (max-width:550px){
-    .job-card{
+@media (max-width:570px){
+    .job-actions{
         flex-direction: column;
-        text-align: center;
+    }
+}
+
+@media (max-width:1050px){
+    .job-card{
+        align-items: center;
     }
 }

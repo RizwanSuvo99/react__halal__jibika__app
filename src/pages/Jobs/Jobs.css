@@ -25,6 +25,16 @@
 @media (max-width:1050px){
     .jobs__cards{
         grid-template-columns: 1fr;
+        max-width: 70%;
+        margin: 0 auto;
+        text-align: center;
     }
 }
+
+@media (max-width:570px){
+    .jobs__cards{
+        max-width: 90%;
+    }
+}
+
 

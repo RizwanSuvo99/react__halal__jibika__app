@@ -1,18 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap");
 
 :root {
-  --primary_clr: #244034;
-  --secondary_clr: #6bfae2;
-  --accent_clr: #00c058;
-  --text_clr: #fff;
-
   --font_EB: "EB Garamond", serif;
   --font_TB: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-
-  --font_xl: 2rem;
-  --font_md: 1.6rem;
-  --font_sm: 1.2rem;
 }
 /*======== Use a more-intuitive box-sizing model & Remove default margin,padding ========*/
 *,
@@ -32,6 +23,7 @@ body {
   line-height: auto;
   text-rendering: optimizeSpeed;
   font-family: var(--font_TB);
+  color: #0A2D25;
 }
 
 /*======== Improve media defaults ========*/
