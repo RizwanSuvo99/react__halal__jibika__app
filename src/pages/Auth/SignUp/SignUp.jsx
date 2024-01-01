@@ -1,30 +1,58 @@
-import React, { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css"; // Import the SignUp styles
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { IoHome } from "react-icons/io5";
 import { RiSendBackward } from "react-icons/ri";
+import { halalAuth } from "../../../firebase/firebase.config";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import Loading from "../../Loading/Loading";
 
 const SignUp = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
   const navigate = useNavigate();
 
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(halalAuth);
+    
   const handleBack = () => {
     navigate(-1);
   };
-
   const handleBackToHome = () => {
     navigate("/");
   };
 
-  const handleSignUp = () => {
-    // Add your sign-up logic here
+  const initialState = {
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+
+  const [formInputs, setFormInputs] = useState(initialState);
+
+  const { username, email, password, confirmPassword } = formInputs;
+
+  const inputChanges = (e) => {
+    setFormInputs({
+      ...formInputs,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  if (loading) {
+    return <Loading />;
+  }
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
     if (password === confirmPassword) {
-      alert("Sign Up successful!");
+      createUserWithEmailAndPassword(email, password);
     } else {
       alert("Passwords do not match!");
     }
@@ -33,7 +61,7 @@ const SignUp = () => {
   return (
     <div className="signup">
       <div className="signup-container">
-        <form className="signup-form">
+        <form className="signup-form" onSubmit={handleSignUp}>
           <h1>Sign Up</h1>
 
           <label htmlFor="username">Username</label>
@@ -42,8 +70,7 @@ const SignUp = () => {
             id="username"
             name="username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
+            onChange={inputChanges}
           />
 
           <label htmlFor="email">Email</label>
@@ -52,8 +79,7 @@ const SignUp = () => {
             id="email"
             name="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            onChange={inputChanges}
           />
 
           <label htmlFor="password">Password</label>
@@ -62,8 +88,7 @@ const SignUp = () => {
             id="password"
             name="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
+            onChange={inputChanges}
           />
 
           <label htmlFor="confirmPassword">Confirm Password</label>
@@ -72,37 +97,28 @@ const SignUp = () => {
             id="confirmPassword"
             name="confirmPassword"
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
+            onChange={inputChanges}
           />
 
-          <button
-            type="button"
-            className="signup-button btn"
-            onClick={handleSignUp}
-          >
-            Sign Up
-          </button>
-
-          <div className="social-buttons">
-            <button className="social-btn google-btn btn">
-              <FaGoogle className="icon" /> Google Login
-            </button>
-            <button className="social-btn github-btn btn">
-              <FaGithub className="icon" /> GitHub Login
-            </button>
-          </div>
-
-          {/* Navigation buttons */}
-          <div className="navigation-buttons">
-            <Link onClick={handleBackToHome} className="btn">
-              <IoHome />
-            </Link>
-            <Link onClick={handleBack} className="btn">
-              <RiSendBackward />
-            </Link>
-          </div>
+          <button className="signup-button btn">Sign Up</button>
         </form>
+        <div className="social-buttons">
+          <button className="social-btn google-btn btn">
+            <FaGoogle className="icon" /> Google Login
+          </button>
+          <button className="social-btn github-btn btn">
+            <FaGithub className="icon" /> GitHub Login
+          </button>
+        </div>
+
+        <div className="navigation-buttons">
+          <Link onClick={handleBackToHome} className="btn">
+            <IoHome />
+          </Link>
+          <Link onClick={handleBack} className="btn">
+            <RiSendBackward />
+          </Link>
+        </div>
       </div>
     </div>
   );

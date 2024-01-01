@@ -38,22 +38,23 @@ const routes = createBrowserRouter([
       {
         path: "/jobs",
         element: <Jobs />,
-        loader:() => fetch("http://localhost:9000/jobs")
+        loader: () => fetch("http://localhost:9000/jobs"),
       },
       {
         path: "/jobs/:jobsId",
         element: <Job />,
-        loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/users/${params.jobsId}`),
-      }
+        loader: ({ params }) =>
+          fetch(`https://jsonplaceholder.typicode.com/users/${params.jobsId}`),   
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
     ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    element: <SignUp />,
   },
   {
     path: "*",

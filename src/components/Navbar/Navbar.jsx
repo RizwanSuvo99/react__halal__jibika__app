@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+  
   return (
     <div>
       <nav className="navbar flex">
@@ -11,6 +12,7 @@ const Navbar = () => {
         <NavLink to={"/favourites"}>Favourites</NavLink>
         <NavLink to={"/contact"}>Contact</NavLink>
         <NavLink to={"/login"}>Log In</NavLink>
+        <NavLink to={"/signup"}>Sign Up</NavLink>
       </nav>
     </div>
   );
