@@ -9,6 +9,8 @@ import NotFound from "../pages/NotFound/NotFound";
 import Login from "../pages/Auth/Login/Login";
 import SignUp from "../pages/Auth/SignUp/SignUp";
 import Job from "../components/Job/Job";
+import AddJobs from "../pages/AddJobs/AddJobs";
+import Applied from "../pages/Applied/Applied";
 
 const routes = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const routes = createBrowserRouter([
         element: <Job />,
         loader: ({ params }) =>
           fetch(`https://jsonplaceholder.typicode.com/users/${params.jobsId}`),   
+      },
+      {
+        path: "/addjobs",
+        element: <AddJobs />,
+      },
+      {
+        path: "/applied",
+        element: <Applied />,
       },
       {
         path: "/login",

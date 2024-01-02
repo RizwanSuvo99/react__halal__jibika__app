@@ -7,7 +7,7 @@
   min-height: 100vh;
   background-color: #f0fffd;
   color: #0a2d25;
-  padding: 0 2rem;
+  padding: 2rem;
 }
 
 .company-info {
@@ -44,3 +44,10 @@
 .about__img img {
   border-radius: 1rem;
 }
+
+@media (max-width: 1050px) {
+  .about{
+    flex-direction: column-reverse;
+  }
+}
+

@@ -25,7 +25,7 @@
 
 .contact-container button {
   padding: 10px;
-  background-color: #3289b8;
+  background-color: #022E45;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -34,5 +34,5 @@
 }
 
 .contact-container button:hover {
-  background-color: #1a5980;
+  background-color: #054567;
 }

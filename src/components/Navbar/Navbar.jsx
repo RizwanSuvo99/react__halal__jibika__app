@@ -18,10 +18,11 @@ const Navbar = () => {
         <NavLink to={"/about"}>About</NavLink>
         <NavLink to={"./jobs"}>Jobs</NavLink>
         <NavLink to={"/favourites"}>Favourites</NavLink>
+        <NavLink to={"/applied"}>Applied</NavLink>
         <NavLink to={"/contact"}>Contact</NavLink>
 
         {user ? (
-          <NavLink >Add Jobs</NavLink>
+          <NavLink to={"/addjobs"}>Add Jobs</NavLink>
         ) : (
           <NavLink to={"/signup"}>Sign Up</NavLink>
         )}
@@ -33,7 +34,7 @@ const Navbar = () => {
         {user ? (
           (
               <div style={{ display: "flex", alignItems: "center", gap: "0.2rem" }}>
-            <img style={{ width: "30px", height: "30px", borderRadius: "50%" }} src={user.photoURL} alt="" />
+            <img style={{ width: "30px", height: "30px", borderRadius: "50%" }} src={user.photoURL ? user.photoURL : "https://picsum.photos/300/200"} alt="" />
               </div>
             )
         ) : (

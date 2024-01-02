@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { IoHome } from "react-icons/io5";
 import { RiSendBackward } from "react-icons/ri";
-// Import Google and GitHub icons
+import Swal from "sweetalert2";
 import "./Login.css";
 
 const Login = () => {
@@ -17,8 +17,29 @@ const Login = () => {
   };
 
   const handleLogin = () => {
+    // Basic form validation
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!email.trim() || !password.trim()) {
+      Swal.fire({
+        title: "Error!",
+        text: "Email and password are required.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
     // Add your login logic here
-    alert("Login button clicked!");
+
+    // Example SweetAlert for successful login
+    Swal.fire({
+      title: "Success!",
+      text: "Login successful.",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
   };
 
   return (
@@ -26,8 +47,8 @@ const Login = () => {
       <div className="login-container">
         <form className="login-form">
           <h1>Login</h1>
-          <label htmlFor="username">Username</label>
-          <input type="text" id="username" name="username" required />
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" name="email" required />
 
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" required />
