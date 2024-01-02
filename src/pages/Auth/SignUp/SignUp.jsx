@@ -19,7 +19,7 @@ const SignUp = () => {
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(halalAuth);
-    
+
   const handleBack = () => {
     navigate(-1);
   };
@@ -56,6 +56,7 @@ const SignUp = () => {
     } else {
       alert("Passwords do not match!");
     }
+    navigate("/")
   };
 
   return (
