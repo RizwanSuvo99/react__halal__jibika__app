@@ -12,6 +12,7 @@ import Job from "../components/Job/Job";
 import AddJobs from "../pages/AddJobs/AddJobs";
 import Applied from "../pages/Applied/Applied";
 import PrivateRoutes from "./PrivateRoutes";
+import JobDetails from "../components/JobDetails/JobDetails";
 
 const routes = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/jobs/:jobsId",
-        element: <Job />,
+        element: <JobDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:9000/jobs/${params.jobsId}`),
       },

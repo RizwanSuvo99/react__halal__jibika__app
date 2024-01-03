@@ -1,0 +1,71 @@
+/* ApplyJob.css */
+
+.applyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.formBox {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Adjust the width for larger screens */
+  max-width: 400px;
+}
+
+.inputBorder {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.contactHeading {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.inputField input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.inputField input:focus {
+  outline: none;
+  border-color: #022e45;
+}
+
+.submitBtn {
+  background-color: #022e45;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: #07476a;
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 768px) {
+  .formBox {
+    width: 90%;
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 480px) {
+  .formBox {
+    width: 100%;
+  }
+}

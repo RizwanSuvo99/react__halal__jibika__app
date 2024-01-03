@@ -20,7 +20,7 @@ const Job = ({
   };
 
   const handleDetails = () => {
-    console.log(`View details for job with id ${id}`);
+    navigate(`/jobs/${id}`);
   };
 
   const handleApplyNow = () => {
