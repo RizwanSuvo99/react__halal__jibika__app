@@ -24,8 +24,10 @@ const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(halalAuth);
   const [signOut] = useSignOut();
-  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(halalAuth);
-  const [signInWithGithub, gitHubUser, gitHubLoading, gitHubLrror] = useSignInWithGithub(halalAuth);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(halalAuth);
+  const [signInWithGithub, gitHubUser, gitHubLoading, gitHubLrror] =
+    useSignInWithGithub(halalAuth);
 
   const initialState = {
     username: "",
@@ -132,7 +134,55 @@ const SignUp = () => {
     }
   };
 
-  if (loading || googleLoading||gitHubLoading) {
+  const handleSignInWithGoogle = async () => {
+    try {
+      await signInWithGoogle();
+      Swal.fire({
+        title: "Success!",
+        text: "Sign up successful. You are now logged in.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      navigate("/");
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        Swal.fire({
+          title: "Error!",
+          text: "This email address is already in use.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      } else {
+        console.error(error);
+      }
+    }
+  };
+
+  const handleSignInWithGithub = async () => {
+    try {
+      await signInWithGithub();
+      Swal.fire({
+        title: "Success!",
+        text: "Sign up successful. You are now logged in.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      navigate("/");
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        Swal.fire({
+          title: "Error!",
+          text: "This email address is already in use.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      } else {
+        console.error(error);
+      }
+    }
+  };
+
+  if (loading || googleLoading || gitHubLoading) {
     return <Loading />;
   }
 
@@ -186,12 +236,15 @@ const SignUp = () => {
         </form>
         <div className="social-buttons">
           <button
-            onClick={()=>signInWithGoogle()}
+            onClick={handleSignInWithGoogle}
             className="social-btn google-btn btn"
           >
             <FaGoogle className="icon" /> Google Login
           </button>
-          <button onClick={()=>signInWithGithub()} className="social-btn github-btn btn">
+          <button
+            onClick={handleSignInWithGithub}
+            className="social-btn github-btn btn"
+          >
             <FaGithub className="icon" /> GitHub Login
           </button>
         </div>

@@ -4,18 +4,23 @@ import { IoHome } from "react-icons/io5";
 import { RiSendBackward } from "react-icons/ri";
 import Swal from "sweetalert2";
 import "./Login.css";
-import { useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGithub,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { halalAuth } from "../../../firebase/firebase.config";
 import Loading from "../../Loading/Loading";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [
-    signInWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useSignInWithEmailAndPassword(halalAuth);
+  const [signInWithEmailAndPassword,loading, error] =
+    useSignInWithEmailAndPassword(halalAuth);
+  const [signInWithGoogle,googleLoading, googleError] =
+    useSignInWithGoogle(halalAuth);
+  const [signInWithGithub,gitHubLoading, gitHubError] =
+    useSignInWithGithub(halalAuth);
+
   const handleBack = () => {
     navigate(-1);
   };
@@ -28,7 +33,7 @@ const Login = () => {
     // Basic form validation
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-  await  signInWithEmailAndPassword(email,password)
+
     if (!email.trim() || !password.trim()) {
       Swal.fire({
         title: "Error!",
@@ -38,25 +43,52 @@ const Login = () => {
       });
       return;
     }
-    navigate("/");
-    // Add your login logic here
-
-   
-
-    // Example SweetAlert for successful login
-    Swal.fire({
-      title: "Success!",
-      text: "Login successful.",
-      icon: "success",
-      confirmButtonText: "OK",
-    });
+    await signInWithEmailAndPassword(email, password);
   };
-  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(halalAuth)
-  const [signInWithGithub, gitHubUser, gitHubLoading, gitHubLrror] = useSignInWithGithub(halalAuth)
-  
-  if (googleLoading||gitHubLoading) {
+
+  const handleSignInWithGoogle = async () => {
+    try {
+      await signInWithGoogle();
+      Swal.fire({
+        title: "Success!",
+        text: "Sign up successful. You are now logged in.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      navigate("/");
+    } catch (error) {
+        Swal.fire({
+          title: "Error!",
+          text: "This email address is already in use.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+    }
+  };
+
+  const handleSignInWithGithub = async () => {
+    try {
+      await signInWithGithub();
+      Swal.fire({
+        title: "Success!",
+        text: "Sign up successful. You are now logged in.",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
+      navigate("/");
+    } catch (error) {
+        Swal.fire({
+          title: "Error!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+    }
+  };
+
+  if (loading || googleLoading || gitHubLoading) {
     return <Loading />;
   }
+  
   return (
     <div className="login">
       <div className="login-container">
@@ -81,10 +113,16 @@ const Login = () => {
 
           {/* Icons for Google and GitHub login */}
           <div className="social-buttons">
-            <button onClick={()=>signInWithGoogle()} className="social-btn google-btn btn">
+            <button
+              onClick={handleSignInWithGoogle}
+              className="social-btn google-btn btn"
+            >
               <FaGoogle className="icon" /> Google Login
             </button>
-            <button onClick={()=>signInWithGithub()} className="social-btn github-btn btn">
+            <button
+              onClick={handleSignInWithGithub}
+              className="social-btn github-btn btn"
+            >
               <FaGithub className="icon" /> GitHub Login
             </button>
           </div>
