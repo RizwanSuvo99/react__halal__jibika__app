@@ -4,10 +4,17 @@ import { BsBoxArrowInRight } from "react-icons/bs";
 import { halalAuth } from "../../firebase/firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const logout = () => {
     signOut(halalAuth);
+    Swal.fire({
+      title: "Success!",
+      text: "Logout successful.",
+      icon: "success",
+      confirmButtonText: "OK",
+    });
   };
   const [user, loading, error] = useAuthState(halalAuth);
   
@@ -16,9 +23,8 @@ const Navbar = () => {
       <nav className="navbar flex">
         <NavLink to={"/"}>Home</NavLink>
         <NavLink to={"/about"}>About</NavLink>
-        <NavLink to={"./jobs"}>Jobs</NavLink>
+        <NavLink to={"/jobs"}>Jobs</NavLink>
         <NavLink to={"/favourites"}>Favourites</NavLink>
-        <NavLink to={"/applied"}>Applied</NavLink>
         <NavLink to={"/contact"}>Contact</NavLink>
 
         {user ? (

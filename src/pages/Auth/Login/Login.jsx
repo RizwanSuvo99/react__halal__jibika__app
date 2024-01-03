@@ -4,10 +4,18 @@ import { IoHome } from "react-icons/io5";
 import { RiSendBackward } from "react-icons/ri";
 import Swal from "sweetalert2";
 import "./Login.css";
+import { useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { halalAuth } from "../../../firebase/firebase.config";
+import Loading from "../../Loading/Loading";
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(halalAuth);
   const handleBack = () => {
     navigate(-1);
   };
@@ -16,11 +24,11 @@ const Login = () => {
     navigate("/");
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     // Basic form validation
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-
+  await  signInWithEmailAndPassword(email,password)
     if (!email.trim() || !password.trim()) {
       Swal.fire({
         title: "Error!",
@@ -30,8 +38,10 @@ const Login = () => {
       });
       return;
     }
-
+    navigate("/");
     // Add your login logic here
+
+   
 
     // Example SweetAlert for successful login
     Swal.fire({
@@ -41,7 +51,12 @@ const Login = () => {
       confirmButtonText: "OK",
     });
   };
-
+  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(halalAuth)
+  const [signInWithGithub, gitHubUser, gitHubLoading, gitHubLrror] = useSignInWithGithub(halalAuth)
+  
+  if (googleLoading||gitHubLoading) {
+    return <Loading />;
+  }
   return (
     <div className="login">
       <div className="login-container">
@@ -66,10 +81,10 @@ const Login = () => {
 
           {/* Icons for Google and GitHub login */}
           <div className="social-buttons">
-            <button className="social-btn google-btn btn">
+            <button onClick={()=>signInWithGoogle()} className="social-btn google-btn btn">
               <FaGoogle className="icon" /> Google Login
             </button>
-            <button className="social-btn github-btn btn">
+            <button onClick={()=>signInWithGithub()} className="social-btn github-btn btn">
               <FaGithub className="icon" /> GitHub Login
             </button>
           </div>

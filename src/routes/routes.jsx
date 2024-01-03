@@ -11,6 +11,7 @@ import SignUp from "../pages/Auth/SignUp/SignUp";
 import Job from "../components/Job/Job";
 import AddJobs from "../pages/AddJobs/AddJobs";
 import Applied from "../pages/Applied/Applied";
+import PrivateRoutes from "./PrivateRoutes";
 
 const routes = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch("http://localhost:9000/jobs"),
       },
       {
         path: "/about",
@@ -30,23 +32,27 @@ const routes = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/about",
-        element: <About />,
-      },
-      {
         path: "/favourites",
-        element: <Favourites />,
+        element: (
+          <PrivateRoutes>
+            <Favourites />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/jobs",
-        element: <Jobs />,
+        element: (
+          <PrivateRoutes>
+            <Jobs />
+          </PrivateRoutes>
+        ),
         loader: () => fetch("http://localhost:9000/jobs"),
       },
       {
         path: "/jobs/:jobsId",
         element: <Job />,
         loader: ({ params }) =>
-          fetch(`https://jsonplaceholder.typicode.com/users/${params.jobsId}`),   
+          fetch(`http://localhost:9000/jobs/${params.jobsId}`),
       },
       {
         path: "/addjobs",
