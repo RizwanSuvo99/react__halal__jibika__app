@@ -60,7 +60,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/applied",
-        element: <Applied />,
+        element: (
+          <PrivateRoutes>
+            <Applied />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/login",

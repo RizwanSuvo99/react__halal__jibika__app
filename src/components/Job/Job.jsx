@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import { FaEdit, FaTrash, FaHeart } from "react-icons/fa";
 import "./Job.css"; 
+import { useNavigate } from "react-router-dom";
 
 const Job = ({
   job: { id, logo, companyName, position, title, description },
 }) => {
+  const navigate = useNavigate();
   const handleEdit = () => {
     console.log(`Edit job with id ${id}`);
   };
@@ -22,7 +24,7 @@ const Job = ({
   };
 
   const handleApplyNow = () => {
-    console.log(`Apply now for job with id ${id}`);
+    navigate("/applied");
   };
 
   return (
