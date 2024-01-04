@@ -5,7 +5,7 @@ import { halalAuth } from "../../firebase/firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import Swal from "sweetalert2";
-import Loading from "../../pages/Loading/Loading";
+import { MdOutlineMenu } from "react-icons/md";
 
 const Navbar = () => {
   const logout = () => {

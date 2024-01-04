@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Job from "../../components/Job/Job";
 import "./Jobs.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -24,12 +24,23 @@ const Jobs = () => {
     }
   };
 
-  const handleFavorite = (job) => {
-      const status = job.isFavourite === "undefined" ? false : !job.isFavourite;
-      axios.put(`http://localhost:9000/jobs/${job.id}`, {
-        ...job,
-        isFavourite: status,
-      });
+  const handleFavorite = async (job) => {
+    const status = job.isFavourite === "undefined" ? false : !job.isFavourite;
+    await axios.put(`http://localhost:9000/jobs/${job.id}`, {
+      ...job,
+      isFavourite: status,
+    });
+    setApiData(
+      apiData.map((data) => {
+        if (data.id === job.id) {
+          return {
+            ...data,
+            isFavourite: status,
+          };
+        }
+        return data;
+      })
+    );
   };
 
   return (

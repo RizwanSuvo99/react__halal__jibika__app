@@ -21,12 +21,12 @@ import Loading from "../../Loading/Loading";
 const SignUp = () => {
   const navigate = useNavigate();
 
-  const [createUserWithEmailAndPassword, user, loading, error] =
+  const [createUserWithEmailAndPassword, loading, error] =
     useCreateUserWithEmailAndPassword(halalAuth);
   const [signOut] = useSignOut();
-  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+  const [signInWithGoogle, googleLoading, googleError] =
     useSignInWithGoogle(halalAuth);
-  const [signInWithGithub, gitHubUser, gitHubLoading, gitHubLrror] =
+  const [signInWithGithub, gitHubLoading, gitHubError] =
     useSignInWithGithub(halalAuth);
 
   const initialState = {
@@ -184,6 +184,10 @@ const SignUp = () => {
 
   if (loading || googleLoading || gitHubLoading) {
     return <Loading />;
+  }
+
+  if(error || googleError || gitHubError){
+    console.log(error || googleError || gitHubError);
   }
 
   return (

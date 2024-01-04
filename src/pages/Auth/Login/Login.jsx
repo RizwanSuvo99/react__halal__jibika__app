@@ -14,11 +14,11 @@ import Loading from "../../Loading/Loading";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [signInWithEmailAndPassword,loading, error] =
+  const [signInWithEmailAndPassword, loading, error] =
     useSignInWithEmailAndPassword(halalAuth);
-  const [signInWithGoogle,googleLoading, googleError] =
+  const [signInWithGoogle, googleLoading, googleError] =
     useSignInWithGoogle(halalAuth);
-  const [signInWithGithub,gitHubLoading, gitHubError] =
+  const [signInWithGithub, gitHubLoading, gitHubError] =
     useSignInWithGithub(halalAuth);
 
   const handleBack = () => {
@@ -57,12 +57,12 @@ const Login = () => {
       });
       navigate("/");
     } catch (error) {
-        Swal.fire({
-          title: "Error!",
-          text: "This email address is already in use.",
-          icon: "error",
-          confirmButtonText: "OK",
-        });
+      Swal.fire({
+        title: "Error!",
+        text: "This email address is already in use.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   };
 
@@ -77,11 +77,11 @@ const Login = () => {
       });
       navigate("/");
     } catch (error) {
-        Swal.fire({
-          title: "Error!",
-          icon: "error",
-          confirmButtonText: "OK",
-        });
+      Swal.fire({
+        title: "Error!",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   };
 
@@ -89,6 +89,10 @@ const Login = () => {
     return <Loading />;
   }
   
+  if (error || googleError || gitHubError) {
+    console.log(error || googleError || gitHubError);
+  }
+
   return (
     <div className="login">
       <div className="login-container">
