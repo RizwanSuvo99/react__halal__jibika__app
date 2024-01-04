@@ -5,6 +5,7 @@ import { halalAuth } from "../../firebase/firebase.config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import Swal from "sweetalert2";
+import Loading from "../../pages/Loading/Loading";
 
 const Navbar = () => {
   const logout = () => {
@@ -16,8 +17,8 @@ const Navbar = () => {
       confirmButtonText: "OK",
     });
   };
-  const [user, loading, error] = useAuthState(halalAuth);
-  
+  const [user] = useAuthState(halalAuth);
+
   return (
     <div>
       <nav className="navbar flex">
@@ -38,11 +39,15 @@ const Navbar = () => {
           <NavLink to={"/login"}>Log In</NavLink>
         )}
         {user ? (
-          (
-              <div style={{ display: "flex", alignItems: "center", gap: "0.2rem" }}>
-            <img style={{ width: "30px", height: "30px", borderRadius: "50%" }} src={user.photoURL ? user.photoURL : "https://picsum.photos/300/200"} alt="" />
-              </div>
-            )
+          <div style={{ display: "flex", alignItems: "center", gap: "0.2rem" }}>
+            <img
+              style={{ width: "30px", height: "30px", borderRadius: "50%" }}
+              src={
+                user.photoURL ? user.photoURL : "https://picsum.photos/300/200"
+              }
+              alt=""
+            />
+          </div>
         ) : (
           <NavLink className={"flex ai-c"}>
             <BsBoxArrowInRight /> Guest

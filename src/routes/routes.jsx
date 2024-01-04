@@ -39,6 +39,7 @@ const routes = createBrowserRouter([
             <Favourites />
           </PrivateRoutes>
         ),
+        loader: () => fetch("http://localhost:9000/jobs"),
       },
       {
         path: "/jobs",

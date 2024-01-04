@@ -1,9 +1,12 @@
-import React from 'react'
+import loadingImg from "../../assets/img/Eclipse-0.7s-224px.svg";
+import "./Loading.css";
 
 const Loading = () => {
   return (
-    <div>Loading</div>
-  )
-}
+    <div className="loading">
+      <img src={loadingImg} alt="" />
+    </div>
+  );
+};
 
-export default Loading
+export default Loading;

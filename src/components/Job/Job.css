@@ -32,8 +32,8 @@
   margin: 0;
 }
 
-.job-actions{
-    width: 100%;
+.job-actions {
+  width: 100%;
 }
 
 .job-actions button {
@@ -52,14 +52,18 @@
   background-color: #054e75;
 }
 
-@media (max-width:570px){
-    .job-actions{
-        flex-direction: column;
-    }
+.heart {
+  color: red;
 }
 
-@media (max-width:1050px){
-    .job-card{
-        align-items: center;
-    }
+@media (max-width: 570px) {
+  .job-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1050px) {
+  .job-card {
+    align-items: center;
+  }
 }
