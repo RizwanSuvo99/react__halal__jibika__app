@@ -24,7 +24,7 @@ const Favourites = () => {
   const handleFavorite = (job) => {
     console.log(job);
     const status = job.isFavourite === "undefined" ? false : !job.isFavourite;
-    axios.put(`http://localhost:9000/jobs/${job.id}`, {
+    axios.put(`https://rizwan-json-server.onrender.com/jobs/${job.id}`, {
       ...job,
       isFavourite: status,
     });

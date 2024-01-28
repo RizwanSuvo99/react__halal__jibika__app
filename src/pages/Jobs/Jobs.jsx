@@ -12,7 +12,7 @@ const Jobs = () => {
     const filteredData = apiData.filter((data) => data.id !== id);
     setApiData(filteredData);
     try {
-      await axios.delete(`http://localhost:9000/jobs/${id}`);
+      await axios.delete(`https://rizwan-json-server.onrender.com/jobs/${id}`);
       Swal.fire({
         title: "Success!",
         text: "Deleted successfully",
@@ -26,7 +26,7 @@ const Jobs = () => {
 
   const handleFavorite = async (job) => {
     const status = job.isFavourite === "undefined" ? false : !job.isFavourite;
-    await axios.put(`http://localhost:9000/jobs/${job.id}`, {
+    await axios.put(`https://rizwan-json-server.onrender.com/jobs/${job.id}`, {
       ...job,
       isFavourite: status,
     });

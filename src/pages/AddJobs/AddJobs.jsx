@@ -35,7 +35,7 @@ const AddJobs = () => {
 
     try {
       // Make a POST request to your server using Axios
-      const response = await axios.post("http://localhost:9000/jobs", formData);
+      const response = await axios.post("https://rizwan-json-server.onrender.com/jobs", formData);
 
       // Check if the request was successful
       if (response.status === 201) {

@@ -22,7 +22,7 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:9000/jobs"),
+        loader: () => fetch("https://rizwan-json-server.onrender.com/jobs"),
       },
       {
         path: "/about",
@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
             <Favourites />
           </PrivateRoutes>
         ),
-        loader: () => fetch("http://localhost:9000/jobs"),
+        loader: () => fetch("https://rizwan-json-server.onrender.com/jobs"),
       },
       {
         path: "/jobs",
@@ -48,13 +48,13 @@ const routes = createBrowserRouter([
             <Jobs />
           </PrivateRoutes>
         ),
-        loader: () => fetch("http://localhost:9000/jobs"),
+        loader: () => fetch("https://rizwan-json-server.onrender.com/jobs"),
       },
       {
         path: "/jobs/:jobsId",
         element: <JobDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:9000/jobs/${params.jobsId}`),
+          fetch(`https://rizwan-json-server.onrender.com/jobs/${params.jobsId}`),
       },
       {
         path: "/addjobs",
